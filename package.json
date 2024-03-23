@@ -1,0 +1,25 @@
+{
+  "name": "duckshellhighlight",
+  "displayName": "DuckShellHighlight",
+  "description": "Add syntax highlight for duck shell (Duck Game Rebuilt's console language)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "duckshell",
+      "aliases": ["Duck Shell", "duckshell"],
+      "extensions": [".dsh"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "duckshell",
+      "scopeName": "source.dsh",
+      "path": "./syntaxes/duckshell.tmLanguage.json"
+    }]
+  }
+}
