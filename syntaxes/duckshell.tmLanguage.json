@@ -1,32 +1,47 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Duck Shell",
+	"scopeName": "source.dsh",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comment"
 		},
 		{
-			"include": "#strings"
+			"include": "#operator"
+		},
+		{
+			"include": "#bkeyword"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "support.function"
+				},
+				"2": {
+					"name": "variable"
+				}
+			},
+			"match": "\\s*([^ \\n\\r{}]+)(\\s+[^{},;:\\?]+)*\\s*"
 		}
 	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.duckshell",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+	"repository": { 
+		"operator": {
+			"match": "(?:;|,|\\?|:|:\\?)",
+			"name": "operator"
 		},
-		"strings": {
-			"name": "string.quoted.double.duckshell",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.duckshell",
-					"match": "\\\\."
-				}
-			]
+		"keyword": {
+			"match": "\\b(?:true|false|null)\\b",
+			"name": "keyword"
+		},
+		"number": {
+			"match": "-?(?:0|[1-9]\\d*)(?:(?:\\.\\d+)?)?",
+			"name": "constant.numeric"
+		},
+		"comment":{
+			"match": "#.*(#|$)",
+			"name" : "comment"
 		}
-	},
-	"scopeName": "source.dsh"
+	}
 }
