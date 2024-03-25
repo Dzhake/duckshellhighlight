@@ -9,7 +9,7 @@
 			"include": "#operator"
 		},
 		{
-			"include": "#bkeyword"
+			"include": "#keyword"
 		},
 		{
 			"include": "#number"
@@ -23,7 +23,7 @@
 					"name": "variable"
 				}
 			},
-			"match": "\\s*([^ \\n\\r{}]+)(\\s+[^{},;:\\?]+)*\\s*"
+			"match": "\\s*([^ ;\\n\\r{}]+)(\\s+[^{};]+)*\\s*"
 		}
 	],
 	"repository": { 
@@ -40,7 +40,7 @@
 			"name": "constant.numeric"
 		},
 		"comment":{
-			"match": "#.*(#|$)",
+			"match": "#.*(?:#|$)",
 			"name" : "comment"
 		}
 	}
